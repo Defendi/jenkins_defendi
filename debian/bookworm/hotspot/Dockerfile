@@ -50,10 +50,13 @@ RUN apt-get update \
     libfontconfig1 \
     libfreetype6 \
     procps \
+    ssh \
     ssh-client \
     tini \
     unzip \
     tzdata \
+    sudo \
+    net-tools \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh -o /tmp/script.deb.sh \
@@ -88,7 +91,7 @@ ENV REF $REF
 RUN mkdir -p $JENKINS_HOME \
   && chown ${uid}:${gid} $JENKINS_HOME \
   && groupadd -g ${gid} ${group} \
-  && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -l -m -s /bin/bash ${user}
+  && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -p $1$dUd/Vd08$3y8nSLwVRSEnrnDktPQY70 -l -m -s /bin/bash ${user}
 
 # Jenkins home directory is a volume, so configuration and build history
 # can be persisted and survive image upgrades
